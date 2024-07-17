@@ -1,14 +1,14 @@
 // App.js
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { API_KEY } from './utils/db';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import PopularPage from './pages/PopularPage';
-import { API_KEY } from './utils/db';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import TopRatedPage from './pages/TopRatedPage';
 import UpcomingPage from './pages/UpcomingPage';
-import Footer from './components/Footer';
 
 
 
@@ -55,7 +55,9 @@ function App() {
           <Route path="/upcoming/movies/:id" element={<MovieDetailsPage />} />
         </Routes>
       </div>
+      <div>
       <Footer />
+      </div>
     </Router>
   );
 }

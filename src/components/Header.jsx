@@ -1,9 +1,11 @@
-// Header.js
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Header = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSearchInputChange = (event) => {
@@ -16,39 +18,53 @@ const Header = ({ onSearch }) => {
   };
 
   return (
-    <header>
-      <nav>
-        <div className="logo">
-          <Link to="/"><h2>IMDB</h2></Link>
-        </div>
+    <nav>
+      <Link to="/">
+        <h2 className="title">IMDB</h2>
+      </Link>
+      <div
+        className="menu"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-        <ul>
-          <li>
-            <Link to="/popular">Popular</Link>
-          </li>
-          <li>
-            <Link to="/top-rated">Top Rated</Link>
-          </li>
-          <li>
-            <Link to="/upcoming">Upcoming</Link>
-          </li>
-          <li>
-            <div className="search_container">
-              <input
-                type="text"
-                name="search movie"
-                placeholder="Search Movie"
-                value={searchQuery}
-                onChange={handleSearchInputChange}
-              />
-              <button type="submit" onClick={handleSearchButtonClick}>
-                Search
-              </button>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </header>
+      <ul className={menuOpen ? "open" : ""}>
+        <li>
+          <NavLink to="/popular" onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}>Popular</NavLink>
+        </li>
+        <li>
+          <NavLink to="/top-rated" onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}>Top Rated</NavLink>
+        </li>
+        <li>
+          <NavLink to="/upcoming" onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}>Upcoming</NavLink>
+        </li>
+        <li>
+          <div className="search_container">
+            <input
+              type="text"
+              name="search movie"
+              placeholder="Search Movie"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+            />
+            <button type="submit" onClick={handleSearchButtonClick}>
+              Search
+            </button>
+          </div>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

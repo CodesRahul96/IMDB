@@ -20,16 +20,16 @@ const TopRatedPage = () => {
     setFilterData(res.results);
   }
 
-  
-
   return (
     <div className="container">
-      <h1>Top Rated</h1>
-      <div className="cards-container">
-        {filterdata?.map((item) => 
-          <Card {...item} key={item.id} />
-        )}
-      </div>
+      <h2>Top Rated</h2>
+      <main>
+        <div className="cards">
+          {filterdata?.map((item) => (
+            <Card {...item} key={item.id} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };

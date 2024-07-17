@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { POPULAR_MOVIES } from "../utils/db";
 import Card from "../components/Card";
 
-
 const PopularPage = () => {
   const [data, setData] = useState([]);
   const [filterdata, setFilterData] = useState([]);
@@ -23,12 +22,14 @@ const PopularPage = () => {
 
   return (
     <div className="container">
-      <h1>Popular</h1>
-      <div className="cards-container">
-        {filterdata?.map((item) => 
-          <Card {...item} key={item.id} />
-        )}
-      </div>
+      <h2>Popular</h2>
+      <main>
+        <div className="cards">
+          {filterdata?.map((item) => (
+            <Card {...item} key={item.id} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };

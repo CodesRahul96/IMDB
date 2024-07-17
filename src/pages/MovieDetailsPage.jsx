@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w200"; // Base image URL
-const DEFAULT_URL = "https://static.vecteezy.com/system/resources/thumbnails/024/095/208/small/happy-young-man-smiling-free-png.png"; // Base image URL
+const DEFAULT_URL =
+  "https://static.vecteezy.com/system/resources/thumbnails/024/095/208/small/happy-young-man-smiling-free-png.png"; // Base image URL
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const MovieDetailsPage = () => {
 
     fetchMovieDetails();
 
-    document.title = "IMDB | Details"
+    document.title = "IMDB | Details";
   }, [id]);
 
   if (!details || cast.length === 0) {
@@ -52,77 +53,74 @@ const MovieDetailsPage = () => {
     overview,
     poster_path,
 
-    backdrop_path
+    backdrop_path,
   } = details;
 
   const formattedDate = new Date(release_date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
-    year: "numeric"
+    year: "numeric",
   });
 
-  
-
   return (
-    
-      <div className="details-cast-section container">
-        <div className="details-section">
-          <div className="details">
-            <div className="bg">
-              <img
-                src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-                alt="movie"
-                className="movie-item"
-              />
-              <div className="bg-items">
-                <h3 className="details-title">{original_title}</h3>
-                <p className="details-rating">Rating: {vote_average}</p>
+    <div className="details-cast-section container">
+      <div className="details-section">
+        <div className="details">
+          <div className="bg">
+            <img
+              src={`https://image.tmdb.org/t/p/w300${poster_path}`}
+              alt="movie"
+              className="movie-item"
+            />
+            <div className="bg-items">
+              <h3 className="details-title">{original_title}</h3>
+              <p className="details-rating">Rating: {vote_average}</p>
 
-                <h3 className="genres">Genres: {genre_ids} </h3>
+              <h3 className="genres">Genres: {genre_ids} </h3>
 
-                <p className="details-realise-date">
-                  Realise Date: {formattedDate}
-                </p>
-              </div>
-            </div>
-            <div className="movie-details">
-              <h2 className="overview">Overview:</h2>
-              <p className="paragraph">{overview}</p>
+              <p className="details-realise-date">
+                Realise Date: {formattedDate}
+              </p>
             </div>
           </div>
-
-          <div className="background-image">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-              alt="bg-"
-              className="item-images"
-            />
+          <div className="movie-details">
+            <h2 className="overview">Overview:</h2>
+            <p className="paragraph">{overview}</p>
           </div>
         </div>
-        
-        <div className="cast">
-          <h2 className="cast-heading">Cast</h2>
-          <ul className="cast-list">
-            {cast.map((actor) => (
-              <li key={actor.id} className="cast-item">
-                <img
-                  src={
-                    actor.profile_path
-                      ? `${IMAGE_URL}${actor.profile_path}`
-                      : `${DEFAULT_URL}` // Use a default image if no profile_path is available
-                  }
-                  alt={actor.name}
-                  className="actor-image"
-                />
-                <div className="actor-details">
-                  <p className="actor-name">{actor.name}</p>
-                  <p className="character-name">:as {actor.character}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+
+        <div className="background-image">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+            alt="bg-"
+            className="item-images"
+          />
         </div>
       </div>
+
+      <div className="cast">
+        <h2 className="cast-heading">Cast</h2>
+        <ul className="cast-list">
+          {cast.map((actor) => (
+            <li key={actor.id} className="cast-item">
+              <img
+                src={
+                  actor.profile_path
+                    ? `${IMAGE_URL}${actor.profile_path}`
+                    : `${DEFAULT_URL}` // Use a default image if no profile_path is available
+                }
+                alt={actor.name}
+                className="actor-image"
+              />
+              <div className="actor-details">
+                <p className="actor-name">{actor.name}</p>
+                <p className="character-name">:as {actor.character}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 

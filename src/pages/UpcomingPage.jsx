@@ -9,7 +9,7 @@ const UpcomingPage = () => {
 
   useEffect(() => {
     getAllData();
-    document.title = "IMDB | Upcoming"
+    document.title = "IMDB | Upcoming";
   }, []);
 
   async function getAllData() {
@@ -22,14 +22,17 @@ const UpcomingPage = () => {
 
   return (
     <div className="container">
-      <h1>Upcoming</h1>
-      <div className="cards-container">
-        {filterdata?.map((item) => 
-          <Card {...item} key={item.id} />
-        )}
-      </div>
+      <h2>Upcoming</h2>
+      <main>
+      
+        <div className="cards">
+          {filterdata?.map((item) => (
+            <Card {...item} key={item.id} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
 
-export default UpcomingPage
+export default UpcomingPage;

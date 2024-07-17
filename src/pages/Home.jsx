@@ -11,12 +11,14 @@ const Home = ({ searchResults, movies }) => {
 
   return (
     <div className="container">
-      <h1>Now Playing</h1>
-      <div className="cards-container">
-        {displayMovies.map((movie) => (
-          <Card key={movie.id} {...movie} />
-        ))}
-      </div>
+      <h2>Now Playing</h2>
+      <main>
+        <div className="cards">
+          {displayMovies.map((movie) => (
+            <Card key={movie.id} {...movie} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
