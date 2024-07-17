@@ -6,7 +6,7 @@ const Home = ({ searchResults, movies }) => {
   const displayMovies = searchResults.length > 0 ? searchResults : movies;
 
   useEffect(() => {
-    document.title = "Home";
+    document.title = "IMDB | Home";
   }, []);
 
   return (

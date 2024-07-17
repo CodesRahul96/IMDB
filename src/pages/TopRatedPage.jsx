@@ -9,7 +9,7 @@ const TopRatedPage = () => {
 
   useEffect(() => {
     getAllData();
-    document.title = "Top Rated";
+    document.title = "IMDB | Top Rated";
   }, []);
 
   async function getAllData() {

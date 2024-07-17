@@ -8,6 +8,7 @@ import { API_KEY } from './utils/db';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import TopRatedPage from './pages/TopRatedPage';
 import UpcomingPage from './pages/UpcomingPage';
+import Footer from './components/Footer';
 
 
 
@@ -54,6 +55,7 @@ function App() {
           <Route path="/upcoming/movies/:id" element={<MovieDetailsPage />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

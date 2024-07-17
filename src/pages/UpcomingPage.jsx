@@ -9,7 +9,7 @@ const UpcomingPage = () => {
 
   useEffect(() => {
     getAllData();
-    document.title = "Upcoming"
+    document.title = "IMDB | Upcoming"
   }, []);
 
   async function getAllData() {

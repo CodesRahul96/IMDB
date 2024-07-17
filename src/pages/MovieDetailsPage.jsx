@@ -36,7 +36,7 @@ const MovieDetailsPage = () => {
 
     fetchMovieDetails();
 
-    document.title = "Details"
+    document.title = "IMDB | Details"
   }, [id]);
 
   if (!details || cast.length === 0) {
