@@ -10,7 +10,7 @@ const PopularPage = () => {
   useEffect(() => {
     getAllData();
     document.title = "IMDB | Popular";
-  }, []);
+  }, []); 
 
   async function getAllData() {
     const fetchData = await fetch(POPULAR_MOVIES);

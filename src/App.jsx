@@ -11,7 +11,6 @@ import TopRatedPage from './pages/TopRatedPage';
 import UpcomingPage from './pages/UpcomingPage';
 
 
-
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [movies, setMovies] = useState([]);

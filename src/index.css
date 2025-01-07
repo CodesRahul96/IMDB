@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  scroll-behavior: smooth;
   /* background: #614385;
   background: -webkit-linear-gradient(to right, #614385, #516395);
   background: linear-gradient(to right, #614385, #516395); */

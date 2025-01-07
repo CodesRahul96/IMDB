@@ -3,7 +3,7 @@ import { IMAGE_URL } from "../utils/db";
 import { Link } from "react-router-dom";
 
 const Card = ({
-  id,
+  id, 
   genre_ids,
   release_date,
   vote_average,

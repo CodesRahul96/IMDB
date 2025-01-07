@@ -16,7 +16,7 @@ const MovieDetailsPage = () => {
           `https://api.themoviedb.org/3/movie/${id}?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US`
         );
         if (!movieResponse.ok) {
-          throw new Error("Failed to fetch movie details.");
+          throw new Error("Failed to fetch movie details."); 
         }
         const movieData = await movieResponse.json();
         setDetails(movieData);
